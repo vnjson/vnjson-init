@@ -48,7 +48,7 @@ async function init (projectName){
         await fs.remove(PATH_ZIP);
         // копирую из каталок ./src в корень проекта
         await fs.copy(PATH_UPLOAD_SRC, projectName);
-        await fs.remove(path.join(process.cwd(), "mcap-main"));
+        await fs.remove(path.join(process.cwd(), configGlobal.updateSrc?.dir||'mcap-main'));
         await fs.remove(path.join(process.cwd(), "public"));
 
     }
