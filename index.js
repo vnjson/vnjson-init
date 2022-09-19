@@ -4,13 +4,18 @@ const path = require('path');
 const color = require('ansi-colors');
 const request = require('request');
 
-
+// updateUrl
 /**
  * PATH
  */
-const URL_SRC = 'https://github.com/vnjson/mcap/archive/refs/heads/main.zip';
+ const YAML  = require('yaml')
+
+
+ const config = YAML.parse(fs.readFileSync(path.resolve(process.cwd()+'/config.yaml'), 'utf8'))
+ 
+const URL_SRC = configGlobal.updateSrc?.url||'https://github.com/vnjson/mcap/archive/refs/heads/main.zip';
 const PATH_ZIP = path.join(process.cwd() , "src.zip");
-const PATH_UPLOAD_SRC = path.join(process.cwd(), 'mcap-main/src');
+const PATH_UPLOAD_SRC = path.join(process.cwd(), (configGlobal.updateSrc?.dir||'mcap-main') +'/src');
 /**
  * ACTIONS
  */
