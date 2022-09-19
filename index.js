@@ -11,7 +11,7 @@ const request = require('request');
  const YAML  = require('yaml')
 
 
- const config = YAML.parse(fs.readFileSync(path.resolve(process.cwd()+'/config.yaml'), 'utf8'))
+ const configGlobal = YAML.parse(fs.readFileSync(path.resolve(process.cwd()+'/config.yaml'), 'utf8'))
  
 const URL_SRC = configGlobal.updateSrc?.url||'https://github.com/vnjson/mcap/archive/refs/heads/main.zip';
 const PATH_ZIP = path.join(process.cwd() , "src.zip");
